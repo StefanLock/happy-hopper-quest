@@ -2,28 +2,15 @@
 
 [ext_resource type="Script" uid="uid://i8cxoe3bqa8k" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cvdij33em0wrk" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://ytnf0p02nem3" path="res://scenes/platform.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c54caxdmf2r56" path="res://scenes/ground.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(226, 374)
+position = Vector2(261, 897)
 
-[node name="Platform" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(-9, 925)
+[node name="PlatformParent" type="Node2D" parent="."]
 
-[node name="Platform5" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(37, 683)
-
-[node name="Platform6" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(334, 513)
-
-[node name="Platform2" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(142, 924)
-
-[node name="Platform3" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(294, 926)
-
-[node name="Platform4" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(443, 925)
+[node name="Ground" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(1, 905)

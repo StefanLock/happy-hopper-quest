@@ -2,14 +2,24 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var speed: float = 300.0
 var gravity: float = 15.0
 var jump_velocity: float = -800.0
 var max_fall_velocity:float = 1000.0
 var viewport_size: Vector2
+var do_a_flip: Tween
+
+func flip() -> void:
+	do_a_flip = create_tween()
+	var flip_dir = [-1, 1].pick_random()
+	do_a_flip.tween_property(sprite_2d, "rotation_degrees", 360.0 * flip_dir, 0.6).as_relative()
 
 func jump() -> void:
+	if randf() < 0.5:
+		flip()
+
 	velocity.y = jump_velocity
 
 func _ready() -> void:
