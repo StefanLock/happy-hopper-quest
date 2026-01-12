@@ -11,6 +11,16 @@ func _ready() -> void:
 	camera = camera_scene.instantiate()
 	camera.setup_camera($Player)
 	add_child(camera)
+	
+	# Generate ground
+	var viewport_size = get_viewport().size
+	var platform_width = 155
+	var platform_height = 37.5
+	var ground_platform_count = (viewport_size.x / platform_width) + 1
+	
+	for i in range(ground_platform_count):
+		var ground_location = Vector2(i * platform_width, viewport_size.y - platform_height)
+		create_platform(ground_location)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
