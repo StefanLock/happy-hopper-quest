@@ -14,7 +14,7 @@ func _ready() -> void:
 	limit_left = 0
 	limit_right = viewport_size.x
 	
-	destroyer.position.y = viewport_size.y / 2.0
+	destroyer.position.y = viewport_size.y
 	var rect_shape = RectangleShape2D.new()
 	var rect_shape_size = Vector2(viewport_size.x, 200.0)
 	rect_shape.set_size(rect_shape_size)
@@ -25,6 +25,12 @@ func _process(delta: float) -> void:
 		var limit_distance = 600
 		if limit_bottom > player.global_position.y + limit_distance:
 			limit_bottom = player.global_position.y + limit_distance
+		
+		var overlapping_areas = destroyer.get_overlapping_areas()
+		if overlapping_areas.size() > 0:
+			for area in overlapping_areas:
+				if area is Platform:
+					area.queue_free()
 
 func setup_camera(_player: Player):
 	if _player:
