@@ -5,8 +5,8 @@ extends Node2D
 var platform_scene = preload("res://scenes/platform.tscn")
 
 var start_platform_y
-var y_distance_between_platforms = 100
-var level_size = 50
+var y_distance_between_platforms = randf_range(100.0, 150.0)
+var level_size = 15
 var viewport_size
 var generated_platform_count = 0
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 	generate_level(start_platform_y, true)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player:
 		var py = player.global_position.y
 		var end_of_level_pos = start_platform_y - (generated_platform_count * y_distance_between_platforms)

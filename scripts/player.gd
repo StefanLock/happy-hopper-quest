@@ -25,7 +25,7 @@ func jump() -> void:
 func _ready() -> void:
 	viewport_size = get_viewport_rect().size
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if velocity.y > 0:
 		if animation_player.current_animation != "fall":
 			animation_player.play("fall")
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		if animation_player.current_animation != "jump":
 			animation_player.play("jump")
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Making gravity and dropping the player in the Y axis
 	velocity.y += gravity
 	if velocity.y > max_fall_velocity:
