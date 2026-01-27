@@ -18,9 +18,9 @@ config/icon="uid://ci3j6wp6qp7b8"
 [display]
 
 window/size/viewport_width=540
-window/size/viewport_height=960
+window/size/viewport_height=980
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input]
@@ -50,6 +50,7 @@ reset={
 
 [input_devices]
 
+sensors/enable_accelerometer=true
 pointing/emulate_touch_from_mouse=true
 
 [layer_names]
