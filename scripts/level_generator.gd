@@ -4,10 +4,12 @@ extends Node2D
 
 var platform_scene = preload("res://scenes/platform.tscn")
 
+const DESIGN_WIDTH = 740.0
+const DESIGN_HEIGHT = 1280.0
+
 var start_platform_y
-var y_distance_between_platforms = randf_range(100.0, 150.0)
-var level_size = 15
-var viewport_size
+var y_distance_between_platforms = 100.0
+var level_size = 50
 var generated_platform_count = 0
 
 var player: Player = null
@@ -15,14 +17,13 @@ var player: Player = null
 func setup(_player: Player):
 	if _player:
 		player = _player
-
+	
 func _ready() -> void:
 	generated_platform_count = 0
-	viewport_size = get_viewport().size
-	start_platform_y = viewport_size.y - (y_distance_between_platforms*2)
+	start_platform_y = DESIGN_HEIGHT - (y_distance_between_platforms)
+	
 	generate_level(start_platform_y, true)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if player:
 		var py = player.global_position.y
@@ -33,19 +34,17 @@ func _process(_delta: float) -> void:
 
 func generate_level(start_y: float, generate_ground: bool):
 	var platform_width = 155
+	var current_view_size = get_viewport().get_visible_rect().size
 	
 	if generate_ground == true:
-		# Generate ground
-		var platform_height = 37.5
-		var ground_platform_count = (viewport_size.x / platform_width) + 1
+		var ground_platform_count = (current_view_size.x / platform_width) + 1
 		
 		for i in range(ground_platform_count):
-			var ground_location = Vector2(i * platform_width, viewport_size.y - platform_height)
+			var ground_location = Vector2(i * platform_width, current_view_size.y)
 			create_platform(ground_location)
-	
-	# Generate platforms	
+
 	for i in range(level_size):
-		var max_x_position = viewport_size.x - platform_width
+		var max_x_position = DESIGN_WIDTH - platform_width
 		var random_x = randf_range(0.0, max_x_position)
 		
 		var location: Vector2

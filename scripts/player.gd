@@ -11,6 +11,9 @@ var max_fall_velocity:float = 1000.0
 var viewport_size: Vector2
 var do_a_flip: Tween
 
+var use_accelerometer: bool = false
+var accelerometer_speed = 130
+
 func flip() -> void:
 	do_a_flip = create_tween()
 	var flip_dir = [-1, 1].pick_random()
@@ -24,6 +27,10 @@ func jump() -> void:
 
 func _ready() -> void:
 	viewport_size = get_viewport_rect().size
+	
+	var os_name = OS.get_name()
+	if os_name == "Android":
+		use_accelerometer = true
 
 func _process(_delta: float) -> void:
 	if velocity.y > 0:
@@ -38,13 +45,16 @@ func _physics_process(_delta: float) -> void:
 	velocity.y += gravity
 	if velocity.y > max_fall_velocity:
 		velocity.y = max_fall_velocity
-	
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * speed
+		
+	if use_accelerometer == true:
+		var mobile_input = Input.get_accelerometer()
+		velocity.x = mobile_input.x * accelerometer_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed/10)
-		# Change the /10 to a bigger number to slow down stopping speed left and right.
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed/10)
 	
 	move_and_slide()
 	# Margin to make the teleportation less jumpy.
