@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="happy_hopper_quest"
-run/main_scene="uid://cikyu1m7q3dwx"
+run/main_scene="uid://c782h11ro4hjm"
 config/features=PackedStringArray("4.4", "Mobile")
+
+[autoload]
+
+MyUtility="*res://scripts/utility.gd"
 
 [display]
 
@@ -21,6 +25,11 @@ window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[global_group]
+
+debug_console=""
+buttons=""
 
 [input]
 

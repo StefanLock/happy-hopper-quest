@@ -24,6 +24,7 @@ func jump() -> void:
 		flip()
 
 	velocity.y = jump_velocity
+	MyUtility.add_logs("Player Jumped")
 
 func _ready() -> void:
 	viewport_size = get_viewport_rect().size
