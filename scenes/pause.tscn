@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi0200lndyyrl"]
+
+[ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="1_aicil"]
+[ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_r1fnm"]
+[ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="2_jn4bt"]
+[ext_resource type="Texture2D" uid="uid://bidu4yjglgmmo" path="res://assets/PNG/UI/Icons/White/2x/return.png" id="3_r1fnm"]
+[ext_resource type="Texture2D" uid="uid://da2d66eilrdnt" path="res://assets/PNG/UI/Icons/White/2x/menuList.png" id="4_wen6a"]
+[ext_resource type="Texture2D" uid="uid://rmj16myoid3m" path="res://assets/PNG/UI/Icons/White/2x/cross.png" id="5_jn4bt"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1fnm")
+
+[node name="BlueBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.529412, 0.807843, 0.921569, 0.666667)
+
+[node name="ColorRect" type="ColorRect" parent="BlueBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -392.0
+offset_right = 326.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.8, 0, 1)
+
+[node name="Label" type="Label" parent="BlueBG/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -69.5
+offset_right = 150.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_aicil")
+text = "Paused
+"
+
+[node name="PauseRetry" parent="BlueBG/ColorRect" instance=ExtResource("2_jn4bt")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 524.0
+offset_right = 220.0
+offset_bottom = 624.0
+theme = ExtResource("1_aicil")
+texture_normal = ExtResource("3_r1fnm")
+stretch_mode = 0
+
+[node name="RetryText" type="Label" parent="BlueBG/ColorRect/PauseRetry"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 99.0
+offset_right = 186.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 23
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" parent="BlueBG/ColorRect" instance=ExtResource("2_jn4bt")]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 522.0
+offset_right = 501.0
+offset_bottom = 622.0
+theme = ExtResource("1_aicil")
+texture_normal = ExtResource("4_wen6a")
+stretch_mode = 0
+
+[node name="MenuText" type="Label" parent="BlueBG/ColorRect/PauseMenu"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = 103.0
+offset_right = 185.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 23
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseClose" parent="BlueBG/ColorRect" instance=ExtResource("2_jn4bt")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_right = 0.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme = ExtResource("1_aicil")
+texture_normal = ExtResource("5_jn4bt")
+stretch_mode = 0

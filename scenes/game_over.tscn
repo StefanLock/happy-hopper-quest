@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0bnl3i8p50ki"]
+
+[ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="1_7m3ot"]
+[ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_v3hpu"]
+[ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="2_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://bidu4yjglgmmo" path="res://assets/PNG/UI/Icons/White/2x/return.png" id="3_irg28"]
+[ext_resource type="Texture2D" uid="uid://da2d66eilrdnt" path="res://assets/PNG/UI/Icons/White/2x/menuList.png" id="4_2jtsn"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3hpu")
+
+[node name="BlueBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.529412, 0.807843, 0.921569, 0.666667)
+
+[node name="ColorRect" type="ColorRect" parent="BlueBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -392.0
+offset_right = 326.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.8, 0, 1)
+
+[node name="GoodJob" type="Label" parent="BlueBG/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -315.0
+offset_right = 270.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7m3ot")
+theme_override_font_sizes/font_size = 80
+text = "Good Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="BlueBG/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -100.0
+offset_right = 217.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7m3ot")
+text = "Score: 999
+"
+
+[node name="BestScoreLabel" type="Label" parent="BlueBG/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -26.0
+offset_right = 217.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7m3ot")
+text = "Best: 999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverRetry" parent="BlueBG/ColorRect" instance=ExtResource("2_v3hpu")]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 657.0
+offset_right = 173.0
+offset_bottom = 757.0
+theme = ExtResource("1_7m3ot")
+texture_normal = ExtResource("3_irg28")
+stretch_mode = 0
+
+[node name="RetryText" type="Label" parent="BlueBG/ColorRect/GameOverRetry"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 99.0
+offset_right = 186.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 23
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverMenu" parent="BlueBG/ColorRect" instance=ExtResource("2_v3hpu")]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 661.0
+offset_right = 555.0
+offset_bottom = 761.0
+theme = ExtResource("1_7m3ot")
+texture_normal = ExtResource("4_2jtsn")
+stretch_mode = 0
+
+[node name="MenuText" type="Label" parent="BlueBG/ColorRect/GameOverMenu"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = 103.0
+offset_right = 185.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 23
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
