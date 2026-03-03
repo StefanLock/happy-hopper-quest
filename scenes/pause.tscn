@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi0200lndyyrl"]
+[gd_scene load_steps=10 format=3 uid="uid://bi0200lndyyrl"]
 
 [ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="1_aicil"]
 [ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_r1fnm"]
 [ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="2_jn4bt"]
 [ext_resource type="Texture2D" uid="uid://bidu4yjglgmmo" path="res://assets/PNG/UI/Icons/White/2x/return.png" id="3_r1fnm"]
 [ext_resource type="Texture2D" uid="uid://da2d66eilrdnt" path="res://assets/PNG/UI/Icons/White/2x/menuList.png" id="4_wen6a"]
+[ext_resource type="Texture2D" uid="uid://hld7fnwtm0nb" path="res://assets/PNG/UI/Icons/Black/2x/return.png" id="5_1xtef"]
 [ext_resource type="Texture2D" uid="uid://rmj16myoid3m" path="res://assets/PNG/UI/Icons/White/2x/cross.png" id="5_jn4bt"]
+[ext_resource type="Texture2D" uid="uid://cjkm1nrh3c0a5" path="res://assets/PNG/UI/Icons/Black/2x/menuList.png" id="7_xmhi0"]
+[ext_resource type="Texture2D" uid="uid://ggit5bkvfrpv" path="res://assets/PNG/UI/Icons/Black/2x/cross.png" id="9_xw83q"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -65,6 +68,7 @@ offset_right = 220.0
 offset_bottom = 624.0
 theme = ExtResource("1_aicil")
 texture_normal = ExtResource("3_r1fnm")
+texture_pressed = ExtResource("5_1xtef")
 stretch_mode = 0
 
 [node name="RetryText" type="Label" parent="BlueBG/ColorRect/PauseRetry"]
@@ -86,6 +90,7 @@ offset_right = 501.0
 offset_bottom = 622.0
 theme = ExtResource("1_aicil")
 texture_normal = ExtResource("4_wen6a")
+texture_pressed = ExtResource("7_xmhi0")
 stretch_mode = 0
 
 [node name="MenuText" type="Label" parent="BlueBG/ColorRect/PauseMenu"]
@@ -110,4 +115,5 @@ offset_bottom = 100.0
 grow_horizontal = 0
 theme = ExtResource("1_aicil")
 texture_normal = ExtResource("5_jn4bt")
+texture_pressed = ExtResource("9_xw83q")
 stretch_mode = 0

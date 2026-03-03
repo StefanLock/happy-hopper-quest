@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://s5wjxxbrjy25"]
+[gd_scene load_steps=13 format=3 uid="uid://s5wjxxbrjy25"]
 
 [ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_3yumr"]
 [ext_resource type="Texture2D" uid="uid://tbifymvvonej" path="res://assets/PNG/Players/bunny1_stand.png" id="1_sa3yf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="3_e54dn"]
 [ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="3_mgrm8"]
 [ext_resource type="Texture2D" uid="uid://dvy5bdwjpbqyv" path="res://assets/PNG/UI/PNG/Yellow/Default/button_rectangle_depth_gradient.png" id="4_dc4i4"]
+[ext_resource type="Texture2D" uid="uid://lybotmjxsy8m" path="res://assets/PNG/UI/PNG/Blue/Default/button_rectangle_depth_gradient.png" id="7_cs5ya"]
 
 [sub_resource type="Theme" id="Theme_e54dn"]
 default_font = ExtResource("2_s4lrb")
@@ -133,6 +134,7 @@ offset_bottom = -335.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_dc4i4")
+texture_pressed = ExtResource("7_cs5ya")
 
 [node name="PlayLabel" type="Label" parent="TitlePlay"]
 layout_mode = 1
@@ -160,6 +162,7 @@ offset_bottom = -218.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_dc4i4")
+texture_pressed = ExtResource("7_cs5ya")
 
 [node name="QuitLabel" type="Label" parent="TitleQuit"]
 layout_mode = 1

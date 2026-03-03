@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0bnl3i8p50ki"]
+[gd_scene load_steps=8 format=3 uid="uid://d0bnl3i8p50ki"]
 
 [ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="1_7m3ot"]
 [ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_v3hpu"]
 [ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="2_v3hpu"]
 [ext_resource type="Texture2D" uid="uid://bidu4yjglgmmo" path="res://assets/PNG/UI/Icons/White/2x/return.png" id="3_irg28"]
 [ext_resource type="Texture2D" uid="uid://da2d66eilrdnt" path="res://assets/PNG/UI/Icons/White/2x/menuList.png" id="4_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://hld7fnwtm0nb" path="res://assets/PNG/UI/Icons/Black/2x/return.png" id="5_irg28"]
+[ext_resource type="Texture2D" uid="uid://cjkm1nrh3c0a5" path="res://assets/PNG/UI/Icons/Black/2x/menuList.png" id="7_2jtsn"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -103,6 +105,7 @@ offset_right = 173.0
 offset_bottom = 757.0
 theme = ExtResource("1_7m3ot")
 texture_normal = ExtResource("3_irg28")
+texture_pressed = ExtResource("5_irg28")
 stretch_mode = 0
 
 [node name="RetryText" type="Label" parent="BlueBG/ColorRect/GameOverRetry"]
@@ -124,6 +127,7 @@ offset_right = 555.0
 offset_bottom = 761.0
 theme = ExtResource("1_7m3ot")
 texture_normal = ExtResource("4_2jtsn")
+texture_pressed = ExtResource("7_2jtsn")
 stretch_mode = 0
 
 [node name="MenuText" type="Label" parent="BlueBG/ColorRect/GameOverMenu"]
