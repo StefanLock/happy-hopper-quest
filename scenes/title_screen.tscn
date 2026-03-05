@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://s5wjxxbrjy25"]
+[gd_scene load_steps=11 format=3 uid="uid://s5wjxxbrjy25"]
 
 [ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_3yumr"]
-[ext_resource type="Texture2D" uid="uid://tbifymvvonej" path="res://assets/PNG/Players/bunny1_stand.png" id="1_sa3yf"]
 [ext_resource type="Texture2D" uid="uid://h0r51oush4x0" path="res://assets/PNG/Background/bg_layer4.png" id="2_cs5ya"]
 [ext_resource type="Texture2D" uid="uid://b26ki3d3xsn2e" path="res://assets/PNG/Background/bg_layer3.png" id="2_mykxm"]
 [ext_resource type="FontFile" uid="uid://rphjhf61shu4" path="res://assets/PNG/UI/Font/Kenney Future.ttf" id="2_s4lrb"]
@@ -15,68 +14,6 @@
 default_font = ExtResource("2_s4lrb")
 default_font_size = 35
 Label/constants/outline_size = 10
-
-[sub_resource type="Animation" id="Animation_mykxm"]
-resource_name = "hop"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bunny:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.7, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(392, 1080), Vector2(392, 700), Vector2(392, 1080)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Bunny:texture")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_sa3yf"), ExtResource("10_tklts"), ExtResource("1_sa3yf")]
-}
-
-[sub_resource type="Animation" id="Animation_u26n3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bunny:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(392, 1080)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Bunny:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_sa3yf")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tklts"]
-_data = {
-&"RESET": SubResource("Animation_u26n3"),
-&"hop": SubResource("Animation_mykxm")
-}
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -100,9 +37,10 @@ scale = Vector2(0.43457, 0.624023)
 texture = ExtResource("2_cs5ya")
 
 [node name="Bunny" type="Sprite2D" parent="."]
-position = Vector2(392, 1080)
-scale = Vector2(2, 2)
-texture = ExtResource("1_sa3yf")
+position = Vector2(360, 788)
+rotation = -0.289195
+scale = Vector2(3, 3)
+texture = ExtResource("10_tklts")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -172,9 +110,3 @@ theme = SubResource("Theme_e54dn")
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tklts")
-}
-autoplay = "hop"

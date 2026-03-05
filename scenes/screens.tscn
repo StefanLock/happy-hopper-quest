@@ -13,10 +13,8 @@ script = ExtResource("1_lewgl")
 [node name="TitleScreen" parent="." instance=ExtResource("3_vh3jh")]
 
 [node name="GameOver" parent="." instance=ExtResource("4_sybca")]
-visible = false
 
 [node name="Pause" parent="." instance=ExtResource("3_kacec")]
-visible = false
 
 [node name="Debug" type="Control" parent="."]
 z_index = 4000
