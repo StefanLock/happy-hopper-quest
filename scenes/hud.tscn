@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://whtf0s4nowfn"]
+
+[ext_resource type="Script" uid="uid://dvne230hf26kv" path="res://scripts/hud.gd" id="1_6fi6k"]
+[ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://deto2fnae05t3" path="res://assets/PNG/UI/Icons/White/2x/pause.png" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://br7nss1n8qdxq" path="res://assets/PNG/UI/Icons/Black/2x/pause.png" id="3_6fi6k"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6fi6k")
+
+[node name="HudBarBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.45098)
+
+[node name="HudBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HudBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreText" type="Label" parent="HudBar/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ahhtf")
+text = " Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HudBar/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ahhtf")
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="TextureButton" parent="HudBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = -7.0
+offset_right = 11.0
+offset_bottom = 93.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_5ysmq")
+texture_pressed = ExtResource("3_6fi6k")
+
+[connection signal="pressed" from="HudBar/PauseButton" to="." method="_on_pause_button_pressed"]

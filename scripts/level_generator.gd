@@ -21,8 +21,9 @@ func setup(_player: Player):
 func _ready() -> void:
 	generated_platform_count = 0
 	var physical_bottom = get_viewport_rect().size.y
-	start_platform_y = physical_bottom - 200 
-	
+	start_platform_y = physical_bottom - 200
+
+func start_generation():
 	generate_level(start_platform_y, true)
 	
 func _process(_delta: float) -> void:

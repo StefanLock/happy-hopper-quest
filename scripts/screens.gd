@@ -5,14 +5,14 @@ extends CanvasLayer
 @onready var pause: Control = $Pause
 @onready var game_over: Control = $GameOver
 
+signal start_game
+
 var current_screen = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	console_log.visible = false
-	
 	register_buttons()
-	
 	change_screen(title_screen)
 
 func register_buttons():
@@ -25,10 +25,11 @@ func register_buttons():
 func _on_button_pressed(button):
 	match  button.name:
 		"TitlePlay":
-			print("Play button")
-			change_screen(pause)
+			change_screen(null)
+			await(get_tree().create_timer(0.5).timeout)
+			start_game.emit()
 		"TitleQuit":
-			pass
+			get_tree().quit(0)
 		"PauseMenu":
 			change_screen(game_over)
 		"PauseRetry":

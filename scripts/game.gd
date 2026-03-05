@@ -14,6 +14,8 @@ const DESIGN_HEIGHT = 1280.0
 @onready var parallax_layer_2: ParallaxLayer = $ParallaxBackground/ParallaxLayer2
 @onready var parallax_layer_3: ParallaxLayer = $ParallaxBackground/ParallaxLayer3
 @onready var parallax_layer_4: ParallaxLayer = $ParallaxBackground/ParallaxLayer4
+@onready var hud: Control = $UILayer/HUD
+
 
 func _ready() -> void:
 	var actual_view_size = get_viewport_rect().size
@@ -32,7 +34,7 @@ func _ready() -> void:
 	setup_parallax_layer(parallax_layer_3)
 	setup_parallax_layer(parallax_layer_4)
 	
-	new_game.call_deferred()
+	hud.visible = false
 
 func get_parralax_sprite_scale(parallax_sprite: Sprite2D):
 	var parallax_texture = parallax_sprite.get_texture()
@@ -73,3 +75,6 @@ func new_game():
 	
 	if player:
 		level_generator.setup(player)
+		level_generator.start_generation()
+	
+	hud.visible = true

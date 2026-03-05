@@ -7,14 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://d0bnl3i8p50ki" path="res://scenes/game_over.tscn" id="4_sybca"]
 
 [node name="Screens" type="CanvasLayer"]
+layer = 101
 script = ExtResource("1_lewgl")
 
 [node name="TitleScreen" parent="." instance=ExtResource("3_vh3jh")]
 
-[node name="Pause" parent="." instance=ExtResource("3_kacec")]
+[node name="GameOver" parent="." instance=ExtResource("4_sybca")]
 visible = false
 
-[node name="GameOver" parent="." instance=ExtResource("4_sybca")]
+[node name="Pause" parent="." instance=ExtResource("3_kacec")]
 visible = false
 
 [node name="Debug" type="Control" parent="."]
