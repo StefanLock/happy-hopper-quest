@@ -12,14 +12,15 @@ func _ready():
 		var safe_area_top = safe_area.position.y
 		
 		hud_bar.position.y += safe_area_top
-		#var margin = 10
-		hud_bar_bg.position.y += safe_area_top ##+ margin
+		var margin = 10
+		hud_bar_bg.size.y += safe_area_top + margin
 		
 		MyUtility.add_logs("safe area: " + str(safe_area))
 		MyUtility.add_logs("safe area top: " + str(safe_area_top))
 		MyUtility.add_logs("Window size: " + str(DisplayServer.window_get_size()))
 
 func _on_pause_button_pressed() -> void:
+	SoundFx.play("Click", "SoundFX", -14)
 	eventbus.pause_game.emit()
 
 func set_score(new_score):

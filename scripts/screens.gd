@@ -25,6 +25,7 @@ func register_buttons():
 				button.clicked.connect(_on_button_pressed)
 
 func _on_button_pressed(button):
+	SoundFx.play("Click", "SoundFX", -14)
 	match  button.name:
 		"TitlePlay":
 			change_screen(null)

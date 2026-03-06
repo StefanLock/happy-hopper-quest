@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqpvw1mipsl5t"]
+
+[ext_resource type="Script" uid="uid://cpuwyy2leoopq" path="res://scripts/sound_fx.gd" id="1_j0h6q"]
+
+[node name="SoundFX" type="Node"]
+process_mode = 3
+script = ExtResource("1_j0h6q")
+
+[node name="SoundFX_1" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundFX_2" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundFX_3" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundFX_4" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundFX_5" type="AudioStreamPlayer" parent="."]

@@ -10,6 +10,8 @@ func _ready() -> void:
 	screens.start_game.connect(_on_screens_start_game)
 	eventbus.pause_game.connect(_on_pause_game)
 	
+	SoundFx.play("Music", "Music", -25)
+	
 func _on_window_event(event):
 	match event:
 		DisplayServer.WINDOW_EVENT_FOCUS_OUT:
