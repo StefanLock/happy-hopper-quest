@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s5wjxxbrjy25"]
+[gd_scene load_steps=13 format=3 uid="uid://s5wjxxbrjy25"]
 
 [ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_3yumr"]
 [ext_resource type="Texture2D" uid="uid://h0r51oush4x0" path="res://assets/PNG/Background/bg_layer4.png" id="2_cs5ya"]
@@ -7,6 +7,8 @@
 [ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="3_e54dn"]
 [ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="3_mgrm8"]
 [ext_resource type="Texture2D" uid="uid://dvy5bdwjpbqyv" path="res://assets/PNG/UI/PNG/Yellow/Default/button_rectangle_depth_gradient.png" id="4_dc4i4"]
+[ext_resource type="Texture2D" uid="uid://b6ooroetef8vc" path="res://assets/PNG/Environment/cloud1.png" id="5_u26n3"]
+[ext_resource type="Texture2D" uid="uid://voh21aqhmcof" path="res://assets/PNG/Environment/cloud2.png" id="6_ib7db"]
 [ext_resource type="Texture2D" uid="uid://lybotmjxsy8m" path="res://assets/PNG/UI/PNG/Blue/Default/button_rectangle_depth_gradient.png" id="7_cs5ya"]
 [ext_resource type="Texture2D" uid="uid://cak8remgdgw0d" path="res://assets/PNG/Players/bunny1_jump.png" id="10_tklts"]
 
@@ -53,34 +55,43 @@ rotation = -0.289195
 scale = Vector2(3, 3)
 texture = ExtResource("10_tklts")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-offset_left = 91.0
-offset_top = 24.0
-offset_right = 678.0
-offset_bottom = 163.0
-theme = ExtResource("3_e54dn")
-text = "Happy Hopper 
-Quest"
-horizontal_alignment = 1
+[node name="Cloud1" type="Sprite2D" parent="BG"]
+position = Vector2(602, -1122)
+texture = ExtResource("5_u26n3")
 
-[node name="TitlePlay" parent="." instance=ExtResource("3_mgrm8")]
+[node name="Cloud2" type="Sprite2D" parent="BG"]
+position = Vector2(271, -1000)
+texture = ExtResource("6_ib7db")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = -399.0
-offset_right = 101.0
-offset_bottom = -335.0
+offset_left = -370.0
+offset_top = -286.0
+offset_right = 369.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_e54dn")
+text = "Happy Hopper 
+Quest
+"
+horizontal_alignment = 1
+
+[node name="TitlePlay" parent="VBoxContainer" instance=ExtResource("3_mgrm8")]
+layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("4_dc4i4")
 texture_pressed = ExtResource("7_cs5ya")
 
-[node name="PlayLabel" type="Label" parent="TitlePlay"]
+[node name="PlayLabel" type="Label" parent="VBoxContainer/TitlePlay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,23 +103,31 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TitleQuit" parent="." instance=ExtResource("3_mgrm8")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = -282.0
-offset_right = 101.0
-offset_bottom = -218.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TitleCredits" parent="VBoxContainer" instance=ExtResource("3_mgrm8")]
+layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("4_dc4i4")
 texture_pressed = ExtResource("7_cs5ya")
 
-[node name="QuitLabel" type="Label" parent="TitleQuit"]
+[node name="CreditsLabel" type="Label" parent="VBoxContainer/TitleCredits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_e54dn")
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleQuit" parent="VBoxContainer" instance=ExtResource("3_mgrm8")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_dc4i4")
+texture_pressed = ExtResource("7_cs5ya")
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer/TitleQuit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

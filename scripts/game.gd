@@ -17,6 +17,7 @@ const DESIGN_HEIGHT = 1280.0
 
 @onready var level_generator: Node2D = $LevelGenerator
 @onready var ground_sprite: Sprite2D = $GroundSprite
+@onready var parallax_layer_1: ParallaxLayer = $ParallaxBackground/ParallaxLayer1
 @onready var parallax_layer_2: ParallaxLayer = $ParallaxBackground/ParallaxLayer2
 @onready var parallax_layer_3: ParallaxLayer = $ParallaxBackground/ParallaxLayer3
 @onready var parallax_layer_4: ParallaxLayer = $ParallaxBackground/ParallaxLayer4
@@ -25,7 +26,7 @@ const DESIGN_HEIGHT = 1280.0
 
 func _ready() -> void:
 	var actual_view_size = get_viewport_rect().size
-	var player_spawn_offset = 50
+	var player_spawn_offset = 10
 	player_spawn_position.x = DESIGN_WIDTH / 2.0
 	player_spawn_position.y = DESIGN_HEIGHT - player_spawn_offset
 	
@@ -34,7 +35,9 @@ func _ready() -> void:
 	
 	var ground_tex_width = ground_sprite.texture.get_width()
 	ground_sprite.scale.x = DESIGN_WIDTH / ground_tex_width * 1.05
-
+	
+	setup_parallax_layer(parallax_layer_1)
+	parallax_layer_1.motion_offset.y = 30.0
 	setup_parallax_layer(parallax_layer_2)
 	setup_parallax_layer(parallax_layer_3)
 	setup_parallax_layer(parallax_layer_4)
@@ -49,6 +52,9 @@ func _ready() -> void:
 func get_parralax_sprite_scale(parallax_sprite: Sprite2D):
 	var parallax_texture = parallax_sprite.get_texture()
 	var parallax_texture_width = parallax_texture.get_width()
+
+	var bg_h = parallax_sprite.texture.get_height() * parallax_sprite.scale.y
+	parallax_layer_1.motion_mirroring = Vector2(0, bg_h)
 	
 	var _scale = DESIGN_WIDTH / parallax_texture_width
 	return Vector2(_scale, _scale)
