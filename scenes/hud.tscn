@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://br7nss1n8qdxq" path="res://assets/PNG/UI/Icons/Black/2x/pause.png" id="3_6fi6k"]
 
 [node name="HUD" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +45,7 @@ vertical_alignment = 1
 [node name="ScoreLabel" type="Label" parent="HudBar/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ahhtf")
-text = "9999"
+text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 

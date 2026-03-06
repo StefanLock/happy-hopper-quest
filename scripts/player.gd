@@ -1,8 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
+signal died
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var speed: float = 300.0
 var gravity: float = 15.0
@@ -14,6 +17,8 @@ var do_a_flip: Tween
 var use_accelerometer: bool = false
 var accelerometer_speed = 130
 
+var dead = false
+
 func flip() -> void:
 	do_a_flip = create_tween()
 	var flip_dir = [-1, 1].pick_random()
@@ -24,7 +29,6 @@ func jump() -> void:
 		flip()
 
 	velocity.y = jump_velocity
-	MyUtility.add_logs("Player Jumped")
 
 func _ready() -> void:
 	viewport_size = get_viewport_rect().size
@@ -46,16 +50,17 @@ func _physics_process(_delta: float) -> void:
 	velocity.y += gravity
 	if velocity.y > max_fall_velocity:
 		velocity.y = max_fall_velocity
-		
-	if use_accelerometer == true:
-		var mobile_input = Input.get_accelerometer()
-		velocity.x = mobile_input.x * accelerometer_speed
-	else:
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			velocity.x = direction * speed
+	
+	if !dead:
+		if use_accelerometer == true:
+			var mobile_input = Input.get_accelerometer()
+			velocity.x = mobile_input.x * accelerometer_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed/10)
+			var direction = Input.get_axis("move_left", "move_right")
+			if direction:
+				velocity.x = direction * speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed/10)
 	
 	move_and_slide()
 	# Margin to make the teleportation less jumpy.
@@ -64,3 +69,14 @@ func _physics_process(_delta: float) -> void:
 		global_position.x = -margin
 	elif global_position.x < - margin:
 		global_position.x = viewport_size.x + margin
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	die()
+	
+func die():
+	if !dead:
+		dead = true
+		MyUtility.add_logs("Player died")
+		collision_shape_2d.set_deferred("disabled", true)
+		died.emit()

@@ -24,20 +24,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3yumr")
 
-[node name="Hills" type="Sprite2D" parent="."]
+[node name="BG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hills" type="Sprite2D" parent="BG"]
 modulate = Color(0.133333, 0.545098, 0.133333, 1)
-position = Vector2(376.5, 639.5)
+position = Vector2(-15.0003, -1241)
 scale = Vector2(0.434082, 0.625488)
 texture = ExtResource("2_mykxm")
+centered = false
 
-[node name="Dirt" type="Sprite2D" parent="."]
+[node name="Dirt" type="Sprite2D" parent="BG"]
 modulate = Color(0.494118, 0.341176, 0.180392, 1)
-position = Vector2(377, 641)
+position = Vector2(362, -600)
 scale = Vector2(0.43457, 0.624023)
 texture = ExtResource("2_cs5ya")
 
-[node name="Bunny" type="Sprite2D" parent="."]
-position = Vector2(360, 788)
+[node name="Bunny" type="Sprite2D" parent="BG"]
+position = Vector2(351, -348)
 rotation = -0.289195
 scale = Vector2(3, 3)
 texture = ExtResource("10_tklts")

@@ -13,10 +13,12 @@ config_version=5
 config/name="happy_hopper_quest"
 run/main_scene="uid://c782h11ro4hjm"
 config/features=PackedStringArray("4.4", "Mobile")
+config/icon="uid://blo0d1wo70757"
 
 [autoload]
 
 MyUtility="*res://scripts/utility.gd"
+eventbus="*res://scripts/event_bus.gd"
 
 [display]
 

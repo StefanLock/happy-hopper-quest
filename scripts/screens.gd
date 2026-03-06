@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var title_screen: Control = $TitleScreen
 @onready var pause: Control = $Pause
 @onready var game_over: Control = $GameOver
+@onready var game_over_score_label = $GameOver/BlueBG/ColorRect/HighScoreLabel
+@onready var game_over_best_score_label = $GameOver/BlueBG/ColorRect/BestScoreLabel
 
 signal start_game
 
@@ -31,20 +33,25 @@ func _on_button_pressed(button):
 		"TitleQuit":
 			get_tree().quit(0)
 		"PauseMenu":
-			change_screen(game_over)
+			change_screen(title_screen)
+			get_tree().paused = false
+			eventbus.delete_level.emit()
 		"PauseRetry":
-			pass
+			change_screen(null)
+			await(get_tree().create_timer(0.75).timeout)
+			get_tree().paused = false
+			start_game.emit()
 		"PauseClose":
-			pass
+			change_screen(null)
+			await(get_tree().create_timer(0.75).timeout)
+			get_tree().paused = false
 		"GameOverMenu":
-			pass
+			change_screen(title_screen)
+			eventbus.delete_level.emit()
 		"GameOverRetry":
-			pass
-		
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+			change_screen(null)
+			await(get_tree().create_timer(0.5).timeout)
+			start_game.emit()
 
 
 func _on_toggle_console_pressed() -> void:
@@ -62,4 +69,12 @@ func change_screen(new_screen):
 		current_screen.visible = true
 		await current_screen.appear().finished
 		get_tree().call_group("buttons", "set_disabled", false)
-		
+
+func end_game(score, highscore):
+	await(get_tree().create_timer(0.75).timeout)
+	game_over_score_label.text = "Score: " + str(score)
+	game_over_best_score_label.text = "Best: " + str(highscore)
+	change_screen(game_over)
+
+func pause_game():
+	change_screen(pause)

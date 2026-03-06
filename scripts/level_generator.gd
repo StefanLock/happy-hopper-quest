@@ -61,3 +61,8 @@ func create_platform(location: Vector2):
 	platform.global_position = location
 	platform_parent.add_child(platform)
 	return platform
+
+func reset_level():
+	generated_platform_count = 0
+	for platform in platform_parent.get_children():
+		platform.queue_free()
