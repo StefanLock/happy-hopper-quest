@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0hhclb4vkgrv"]
+
+[ext_resource type="PackedScene" uid="uid://cwordi2sm8kj6" path="res://scenes/screen_button.tscn" id="1_2fbfq"]
+[ext_resource type="Script" uid="uid://bp4y5cgj1uvcv" path="res://scripts/base_screen.gd" id="1_8gwij"]
+[ext_resource type="Theme" uid="uid://p7238mc4ne1s" path="res://theme.tres" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://da2d66eilrdnt" path="res://assets/PNG/UI/Icons/White/2x/menuList.png" id="3_mah5v"]
+[ext_resource type="Texture2D" uid="uid://cjkm1nrh3c0a5" path="res://assets/PNG/UI/Icons/Black/2x/menuList.png" id="4_kyhnv"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gwij")
+
+[node name="BlueBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.529412, 0.807843, 0.921569, 0.666667)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BlueBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8gwij")
+text = "Assets
+
+License: (Creative Commons Zero, CC0)
+http://creativecommons.org/publicdomain/zero/1.0
+
+Jumper Pack
+by Kenney Vleugels for Kenney (www.kenney.nl)
+https://www.kenney.nl/assets/jumper-pack
+
+Impact Sounds (1.0)
+Created/distributed by Kenney (www.kenney.nl)
+Creation date: 19-12-2019
+
+Background elements
+by Kenney Vleugels for Kenney (www.kenney.nl)
+
+Music
+
+\"Double Polka\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" parent="BlueBG" instance=ExtResource("1_2fbfq")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme = ExtResource("2_8gwij")
+texture_normal = ExtResource("3_mah5v")
+texture_pressed = ExtResource("4_kyhnv")

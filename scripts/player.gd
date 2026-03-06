@@ -25,7 +25,7 @@ func flip() -> void:
 	do_a_flip.tween_property(sprite_2d, "rotation_degrees", 360.0 * flip_dir, 0.6).as_relative()
 
 func jump() -> void:
-	SoundFx.play("Jump", "SoundFX", -10)
+	SoundFx.play("Jump", "SoundFX", -16)
 	if randf() < 0.5:
 		flip()
 

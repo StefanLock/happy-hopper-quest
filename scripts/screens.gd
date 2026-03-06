@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var game_over: Control = $GameOver
 @onready var game_over_score_label = $GameOver/BlueBG/ColorRect/HighScoreLabel
 @onready var game_over_best_score_label = $GameOver/BlueBG/ColorRect/BestScoreLabel
+@onready var credits: Control = $Credits
 
 signal start_game
 
@@ -53,6 +54,8 @@ func _on_button_pressed(button):
 			change_screen(null)
 			await(get_tree().create_timer(0.5).timeout)
 			start_game.emit()
+		"TitleCredits":
+			change_screen(credits)
 
 
 func _on_toggle_console_pressed() -> void:

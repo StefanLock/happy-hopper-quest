@@ -37,7 +37,7 @@ func _ready() -> void:
 	ground_sprite.scale.x = DESIGN_WIDTH / ground_tex_width * 1.05
 	
 	setup_parallax_layer(parallax_layer_1)
-	parallax_layer_1.motion_offset.y = 30.0
+	parallax_layer_1.motion_offset.y = -1000
 	setup_parallax_layer(parallax_layer_2)
 	setup_parallax_layer(parallax_layer_3)
 	setup_parallax_layer(parallax_layer_4)

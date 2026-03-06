@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwt2gpnkubqas"]
+[gd_scene load_steps=7 format=3 uid="uid://dwt2gpnkubqas"]
 
 [ext_resource type="Script" uid="uid://bmjf00w3f2r20" path="res://scripts/screens.gd" id="1_lewgl"]
 [ext_resource type="Texture2D" uid="uid://rbcv0rxcs8bx" path="res://assets/PNG/UI/Icons/White/2x/gear.png" id="2_e6knl"]
 [ext_resource type="PackedScene" uid="uid://bi0200lndyyrl" path="res://scenes/pause.tscn" id="3_kacec"]
 [ext_resource type="PackedScene" uid="uid://s5wjxxbrjy25" path="res://scenes/title_screen.tscn" id="3_vh3jh"]
 [ext_resource type="PackedScene" uid="uid://d0bnl3i8p50ki" path="res://scenes/game_over.tscn" id="4_sybca"]
+[ext_resource type="PackedScene" uid="uid://d0hhclb4vkgrv" path="res://scenes/credits.tscn" id="5_u7tnw"]
 
 [node name="Screens" type="CanvasLayer"]
 process_mode = 3
@@ -16,6 +17,8 @@ script = ExtResource("1_lewgl")
 [node name="GameOver" parent="." instance=ExtResource("4_sybca")]
 
 [node name="Pause" parent="." instance=ExtResource("3_kacec")]
+
+[node name="Credits" parent="." instance=ExtResource("5_u7tnw")]
 
 [node name="Debug" type="Control" parent="."]
 z_index = 4000

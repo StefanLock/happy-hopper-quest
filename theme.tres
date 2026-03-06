@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://p7238mc4ne1s"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://p7238mc4ne1s"]
 
 [ext_resource type="FontFile" uid="uid://rphjhf61shu4" path="res://assets/PNG/UI/Font/Kenney Future.ttf" id="1_e1x85"]
+[ext_resource type="FontFile" uid="uid://belvayu0lhnwt" path="res://assets/PNG/UI/Font/Kenney Future Narrow.ttf" id="2_cjfk0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
 
@@ -16,3 +17,6 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("1_e1x85")
 Label/styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+RichTextLabel/constants/outline_size = 10
+RichTextLabel/font_sizes/normal_font_size = 19
+RichTextLabel/fonts/normal_font = ExtResource("2_cjfk0")
