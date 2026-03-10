@@ -8,7 +8,7 @@ const DESIGN_WIDTH = 740.0
 const DESIGN_HEIGHT = 1280.0
 
 var start_platform_y
-var y_distance_between_platforms = 200.0
+var y_distance_between_platforms = 250.0
 var level_size = 50
 var generated_platform_count = 0
 

@@ -1,0 +1,27 @@
+Privacy Policy for Happy Hopper Quest
+Effective Date: March 10, 2026
+
+1. Introduction
+Stefan Lock develops Happy Hopper Quest. We respect your privacy and are committed to protecting it. This Privacy Policy explains our practices regarding user data.
+
+2. Data We Do NOT Collect
+Happy Hopper Quest is designed as a "Zero-Data" game.
+
+Personal Information: We do not collect names, email addresses, phone numbers, or physical addresses.
+
+Sensitive Data: We do not access your contacts, camera, microphone, or precise GPS location.
+
+Identifiers: We do not collect Android Advertising IDs or unique device identifiers.
+
+3. Third-Party Services
+Our game is built using the Godot Engine. While the game itself does not collect data, the Android OS may collect standard "usage and diagnostics" information (like crash reports) which is governed by Google’s own Privacy Policy. We do not use third-party analytics (like Google Analytics) or ad networks in this version.
+
+4. Children’s Privacy
+Because we do not collect any personal information, Happy Hopper Quest is compliant with the Children's Online Privacy Protection Act (COPPA). We do not knowingly "track" or "profile" any users, including children.
+
+5. Changes to This Policy
+We may update this policy from time to time. Any changes will be posted on this page with an updated "Effective Date."
+
+6. Contact Us
+If you have any questions about this Privacy Policy, please contact us at:
+Stefanthomaslock@gmail.com

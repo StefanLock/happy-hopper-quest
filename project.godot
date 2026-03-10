@@ -13,6 +13,8 @@ config_version=5
 config/name="happy_hopper_quest"
 run/main_scene="uid://c782h11ro4hjm"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0.529412, 0.807843, 0.921569, 1)
+boot_splash/show_image=false
 config/icon="uid://blo0d1wo70757"
 
 [autoload]
@@ -25,6 +27,7 @@ SoundFx="*res://scenes/sound_fx.tscn"
 
 window/size/viewport_width=740
 window/size/viewport_height=1280
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
